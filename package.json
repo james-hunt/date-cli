@@ -1,0 +1,23 @@
+{
+  "name": "date-cli",
+  "version": "1.0.0",
+  "description": "This is required to be a CLI application implemented in node.js using only primitives, built-in language functions and no external npm dependencies. You should build the application so it accepts input from stdin. Please do guide the user through the steps required to use your application, and do validate your input. A complete solution should include your source code, documentation and unit tests. You can upload the source code publicly to Github and share the link with us via email.",
+  "main": "index.js",
+  "dependencies": {},
+  "devDependencies": {
+    "jest": "^27.0.5"
+  },
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/james-hunt/date-cli.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/james-hunt/date-cli/issues"
+  },
+  "homepage": "https://github.com/james-hunt/date-cli#readme"
+}
