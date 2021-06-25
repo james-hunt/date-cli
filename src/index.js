@@ -157,12 +157,17 @@ const main = async () => {
     const input2 = await requestDateInput("Enter second date (yyyy-mm-dd): ");
     const daysBetween = calculate(input1, input2)
 
-    console.log(daysBetween);
+    console.log("Days between:",daysBetween);
     process.exit();
 }
 
 module.exports = {
     main,
     calculate,
-    getDateFromString
+    getDateFromString,
+    getOrderedDates,
+    getDaysInMonth,
+    getDayOfYear,
+    getDaysFromEndOfYear,
+    getDaysBetween
 }
