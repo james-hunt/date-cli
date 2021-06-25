@@ -65,7 +65,7 @@ const validateDate = (dateArray) => {
     }
 }
 
-const requestDateInput = (prompt) => new Promise(resolve => {
+const requestDateInput = (prompt) => new Promise((resolve, reject) => {
     process.stdout.write(prompt)
     process.stdin.on('data', data => {
         try{
@@ -74,8 +74,7 @@ const requestDateInput = (prompt) => new Promise(resolve => {
             validateDate(dateArray);
             resolve(dateArray)
         }catch(e){
-            console.warn('ERROR:', e.message);
-            process.exit();
+            reject(e);
         }
     })
 })
@@ -157,8 +156,7 @@ const main = async () => {
     const input2 = await requestDateInput("Enter second date (yyyy-mm-dd): ");
     const daysBetween = calculate(input1, input2)
 
-    console.log("Days between:",daysBetween);
-    process.exit();
+    return daysBetween
 }
 
 module.exports = {

@@ -1,4 +1,11 @@
-const { calculate, getDateFromString, getOrderedDates, getDaysInMonth, getDayOfYear, getDaysFromEndOfYear, getDaysBetween } = require('./index');
+const stdin = require('mock-stdin').stdin();
+const { main, calculate, getDateFromString, getOrderedDates, getDaysInMonth, getDayOfYear, getDaysFromEndOfYear, getDaysBetween } = require('./index');
+
+const wait = async (timeout) => new Promise(resolve=>{
+    setTimeout(()=>{
+        resolve()
+    }, timeout)
+})
 
 describe('getDateFromString', ()=>{
     test('parses valid dateString', () => {
@@ -109,5 +116,32 @@ describe('calculate', ()=>{
         const date2 = getDateFromString('1983-08-03');
     
         expect(calculate(date1, date2)).toBe(1979);
+    });
+})
+
+describe('main', () => {
+    test('handles valid stdinput', async () => {
+        let response = main();
+        stdin.send('1983-06-02\n');
+        await wait(100);
+        stdin.send('1983-06-05\n');
+        const value = await response;
+        expect(value).toBe(2);
+    });
+
+    test('catches invalid first stdinput', async () => {
+        let response = main();
+        stdin.send('foobar\n');
+        const errorMessage = await response.catch(e=>e.message);
+        expect(errorMessage).toBe('Incorrect date format. Please enter date matching yyyy-mm-dd');
+    });
+
+    test('catches invalid second stdinput', async () => {
+        let response = main();
+        stdin.send('1983-06-02\n');
+        await wait(100);
+        stdin.send('foobar');
+        const errorMessage = await response.catch(e=>e.message);
+        expect(errorMessage).toBe('Incorrect date format. Please enter date matching yyyy-mm-dd');
     });
 })

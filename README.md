@@ -32,10 +32,33 @@ moment('1989-03-01').diff(moment('1983-08-03'), 'days') - 1 // 2036 days
 ```
 
 
-## Run the CLI
-First make sure node.js is installed on your system. Follow the instructions at [nodejs.org](https://nodejs.org/en/download/)
-Download the Git project to your local machine and open the directory in terminal
-Then the following command and follow the prompts
+## Getting Started
+### Install Node.js
+Make sure node.js is installed on your system. Follow the instructions at [nodejs.org](https://nodejs.org/en/download/)
+
+### Run CLI locally
+Download the Git project to your local machine
+```sh
+git clone https://github.com/james-hunt/date-cli.git
+cd date-cli
+```
+Run command and follow prompts
 ```sh
 node index.js
+# Enter first date (yyyy-mm-dd): XXX
+# Enter second date (yyyy-mm-dd): XXX
+# Days between: XXX
+```
+
+### Runing Unit Tests
+Install npm dependencies
+```sh
+yarn
+# OR
+npm install
+```
+
+Run tests
+```sh
+yarn test
 ```

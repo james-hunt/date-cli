@@ -5,10 +5,13 @@
   "main": "index.js",
   "dependencies": {},
   "devDependencies": {
-    "jest": "^27.0.5"
+    "jest": "^27.0.5",
+    "mock-stdin": "^1.0.0"
   },
   "scripts": {
-    "test": "jest"
+    "start": "node index.js",
+    "test": "jest",
+    "test:dev": "jest --watch"
   },
   "repository": {
     "type": "git",
